@@ -10,9 +10,13 @@ require('./Models/db');
 app.use(cors());
 app.use(bodyParser.json());
 
+// 👇 Optional root route for testing
+app.get('/', (req, res) => {
+  res.send('API is live 🚀');
+});
+
 app.use('/api/employees', EmployeeRoutes);
 
-
 app.listen(PORT, () => {
-    console.log(`Server is running on PORT: ${PORT}`);
-})
+  console.log(`Server is running on PORT: ${PORT}`);
+});
